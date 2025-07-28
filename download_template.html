@@ -3,108 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download your certificate - [NAME]">
-    <title>Download Certificate - [NAME]</title>
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Favicon (optional) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
-    
-    <!-- Meta tags for social sharing (optional) -->
-    <meta property="og:title" content="Certificate Download - [NAME]">
-    <meta property="og:description" content="Your certificate is ready for download">
-    <meta property="og:type" content="website">
+    <title>Download Certificate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, Arial, Helvetica, sans-serif;
+            background-color: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-family: inherit;
+            min-width: 200px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .download-btn:active {
+            background-color: #004085;
+        }
+
+        .download-btn:focus {
+            outline: 2px solid #80bdff;
+            outline-offset: 2px;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 480px) {
+            .download-btn {
+                padding: 18px 24px;
+                font-size: 16px;
+                min-width: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <main class="container">
-        <header class="header">
-            <div class="certificate-icon" aria-hidden="true">🎓</div>
-            <h1 class="greeting">Hello [NAME]!</h1>
-            <p class="subtitle">Your certificate is ready for download</p>
-        </header>
-        
-        <section class="download-section">
-            <button 
-                id="downloadBtn" 
-                class="download-btn" 
-                type="button"
-                aria-describedby="download-description"
-                onclick="downloadCertificate()"
-            >
-                📥 Download Certificate
-            </button>
-            
-            <div id="download-description" class="sr-only">
-                Click to download your certificate PDF file
-            </div>
-            
-            <div id="successMessage" class="success-message" role="alert" aria-live="polite">
-                🎉 Thank you! Your certificate download has started.
-            </div>
-        </section>
-        
-        <footer class="footer">
-            <p>💡 <strong>Tip:</strong> Save this page for future reference</p>
-            <p>Having trouble? Contact support for assistance.</p>
-        </footer>
-    </main>
-
-    <script>
-        // Certificate download functionality
-        function downloadCertificate() {
-            const button = document.getElementById('downloadBtn');
-            const successMessage = document.getElementById('successMessage');
-            
-            // Update button state
-            button.disabled = true;
-            button.innerHTML = '⏳ Preparing download...';
-            
-            // Create download link
-            const link = document.createElement('a');
-            link.href = 'documents/[USERNAME]_certificate.pdf'; // UPDATE THIS PATH
-            link.download = '[NAME]_Certificate.pdf'; // UPDATE THIS FILENAME
-            
-            // Trigger download
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Show success message and reset button
-            setTimeout(() => {
-                successMessage.classList.add('show');
-                button.disabled = false;
-                button.innerHTML = '✅ Download Again';
-                
-                // Optional: Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            }, 1000);
-        }
-        
-        // Keyboard accessibility - Allow Enter key to trigger download
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter' && document.activeElement.id === 'downloadBtn') {
-                downloadCertificate();
-            }
-        });
-        
-        // Additional keyboard support for spacebar
-        document.addEventListener('keydown', function(event) {
-            if (event.key === ' ' && document.activeElement.id === 'downloadBtn') {
-                event.preventDefault(); // Prevent page scroll
-                downloadCertificate();
-            }
-        });
-        
-        // Focus management for better accessibility
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadBtn = document.getElementById('downloadBtn');
-            
-            // Set initial focus on the download button for keyboard users
-            downloadBtn.focus();
-        });
-    </script>
+    <a href="documents/[USERNAME]_certificate.pdf" download="Course_Certificate.pdf" class="download-btn">
+        Course Certificate
+    </a>
 </body>
 </html>
 
@@ -114,16 +73,16 @@ INSTRUCTIONS FOR USING THIS TEMPLATE:
 1. Copy this file and rename it to: download_[username].html
    Example: download_rahul.html
 
-2. Replace all instances of [NAME] with the person's display name:
-   Example: [NAME] → Rahul
-
-3. Replace all instances of [USERNAME] with the person's username (lowercase, no spaces):
+2. Replace [USERNAME] with the person's username (lowercase, no spaces):
    Example: [USERNAME] → rahul
+   So the href becomes: documents/rahul_certificate.pdf
 
-4. Make sure the corresponding PDF file exists in the documents/ folder:
+3. Make sure the corresponding PDF file exists in the documents/ folder:
    Example: documents/rahul_certificate.pdf
 
-5. Test the download link before sharing the QR code
+4. Test the download link before sharing the QR code
 
-6. Generate a QR code linking to: https://yourdomain.com/download_[username].html
+5. Generate a QR code linking to: https://yourdomain.com/download_[username].html
+
+That's it! The design is now ultra-minimal with just one centered button.
 --> 

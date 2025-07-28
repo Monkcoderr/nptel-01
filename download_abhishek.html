@@ -3,127 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download your certificate - Abhishek">
-    <title>Download Certificate - Abhishek</title>
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Favicon (optional) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
-    
-    <!-- Meta tags for social sharing (optional) -->
-    <meta property="og:title" content="Certificate Download - Abhishek">
-    <meta property="og:description" content="Your certificate is ready for download">
-    <meta property="og:type" content="website">
+    <title>Download Certificate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, Arial, Helvetica, sans-serif;
+            background-color: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-family: inherit;
+            min-width: 200px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .download-btn:active {
+            background-color: #004085;
+        }
+
+        .download-btn:focus {
+            outline: 2px solid #80bdff;
+            outline-offset: 2px;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 480px) {
+            .download-btn {
+                padding: 18px 24px;
+                font-size: 16px;
+                min-width: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <main class="container">
-        <header class="header">
-            <div class="certificate-icon" aria-hidden="true">🎓</div>
-            <h1 class="greeting">Hello Abhishek!</h1>
-            <p class="subtitle">Your certificate is ready for download</p>
-        </header>
-        
-        <section class="download-section">
-            <button 
-                id="downloadBtn" 
-                class="download-btn" 
-                type="button"
-                aria-describedby="download-description"
-                onclick="downloadCertificate()"
-            >
-                📥 Download Certificate
-            </button>
-            
-            <div id="download-description" class="sr-only">
-                Click to download your certificate PDF file
-            </div>
-            
-            <div id="successMessage" class="success-message" role="alert" aria-live="polite">
-                🎉 Thank you! Your certificate download has started.
-            </div>
-        </section>
-        
-        <footer class="footer">
-            <p>💡 <strong>Tip:</strong> Save this page for future reference</p>
-            <p>Having trouble? Contact support for assistance.</p>
-        </footer>
-    </main>
-
-    <script>
-        // Certificate download functionality
-        function downloadCertificate() {
-            const button = document.getElementById('downloadBtn');
-            const successMessage = document.getElementById('successMessage');
-            
-            // Update button state
-            button.disabled = true;
-            button.innerHTML = '⏳ Preparing download...';
-            
-            // Create download link
-            const link = document.createElement('a');
-            link.href = 'documents/abhishek_certificate.pdf';
-            link.download = 'Abhishek_Certificate.pdf';
-            
-            // Trigger download
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Show success message and reset button
-            setTimeout(() => {
-                successMessage.classList.add('show');
-                button.disabled = false;
-                button.innerHTML = '✅ Download Again';
-                
-                // Optional: Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            }, 1000);
-        }
-        
-        // Keyboard accessibility - Allow Enter key to trigger download
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter' && document.activeElement.id === 'downloadBtn') {
-                downloadCertificate();
-            }
-        });
-        
-        // Additional keyboard support for spacebar
-        document.addEventListener('keydown', function(event) {
-            if (event.key === ' ' && document.activeElement.id === 'downloadBtn') {
-                event.preventDefault(); // Prevent page scroll
-                downloadCertificate();
-            }
-        });
-        
-        // Focus management for better accessibility
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadBtn = document.getElementById('downloadBtn');
-            
-            // Set initial focus on the download button for keyboard users
-            downloadBtn.focus();
-        });
-        
-        // Error handling for missing files
-        function handleDownloadError() {
-            const successMessage = document.getElementById('successMessage');
-            successMessage.innerHTML = '❌ Sorry, the certificate file is not available. Please contact support.';
-            successMessage.style.background = '#fed7d7';
-            successMessage.style.borderColor = '#fc8181';
-            successMessage.style.color = '#742a2a';
-            successMessage.classList.add('show');
-        }
-        
-        // Optional: Check if file exists before download (requires modern browsers)
-        async function checkFileExists(url) {
-            try {
-                const response = await fetch(url, { method: 'HEAD' });
-                return response.ok;
-            } catch (error) {
-                return false;
-            }
-        }
-    </script>
+    <a href="documents/abhishek_certificate.pdf" download="Course_Certificate.pdf" class="download-btn">
+        Course Certificate
+    </a>
 </body>
 </html> 
