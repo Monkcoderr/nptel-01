@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Certificate Download Portal - Access your certificates via QR code">
+    <title>Certificate Download Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    
+    <!-- Meta tags for social sharing -->
+    <meta property="og:title" content="Certificate Download Portal">
+    <meta property="og:description" content="Access your certificates securely via QR code">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <div class="certificate-icon" aria-hidden="true">🎓</div>
+            <h1 class="greeting">Certificate Portal</h1>
+            <p class="subtitle">Secure certificate downloads via QR code</p>
+        </header>
+        
+        <section class="download-section">
+            <div class="info-card">
+                <h2>How to Download Your Certificate</h2>
+                <ol class="instructions">
+                    <li>📱 <strong>Scan the QR code</strong> you received</li>
+                    <li>🔗 <strong>Visit your personal page</strong> via the QR link</li>
+                    <li>📥 <strong>Click the download button</strong> to get your certificate</li>
+                </ol>
+            </div>
+            
+            <div class="help-section">
+                <h3>Need Help?</h3>
+                <p>If you don't have your QR code or are experiencing issues, please contact our support team.</p>
+                <button class="contact-btn" onclick="showContactInfo()">
+                    📞 Contact Support
+                </button>
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <p>🔒 <strong>Secure Downloads:</strong> All certificates are protected and verified</p>
+            <p>© 2024 Certificate Portal. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <style>
+        /* Additional styles for the landing page */
+        .info-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .info-card h2 {
+            color: #2d3748;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .instructions {
+            list-style: none;
+            padding: 0;
+            counter-reset: step-counter;
+        }
+        
+        .instructions li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .instructions li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .help-section {
+            background: #fffaf0;
+            border: 2px solid #fbd38d;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .help-section h3 {
+            color: #744210;
+            margin-bottom: 10px;
+        }
+        
+        .help-section p {
+            color: #975a16;
+            margin-bottom: 15px;
+        }
+        
+        .contact-btn {
+            background: #ed8936;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .contact-btn:hover {
+            background: #dd6b20;
+            transform: translateY(-1px);
+        }
+        
+        /* Contact modal styles */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-modal.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        @media (max-width: 480px) {
+            .info-card {
+                padding: 20px;
+            }
+            
+            .instructions li {
+                font-size: 1rem;
+                padding-left: 35px;
+            }
+            
+            .instructions li::before {
+                width: 22px;
+                height: 22px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+    <script>
+        function showContactInfo() {
+            // Create modal if it doesn't exist
+            let modal = document.getElementById('contactModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'contactModal';
+                modal.className = 'contact-modal';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <button class="close-btn" onclick="hideContactInfo()">&times;</button>
+                        <h3>Contact Support</h3>
+                        <p><strong>Email:</strong> support@yourorganization.com</p>
+                        <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                        <p><strong>Hours:</strong> Mon-Fri, 9 AM - 5 PM</p>
+                        <button class="download-btn" onclick="hideContactInfo()" style="margin-top: 15px;">
+                            Close
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+            
+            modal.classList.add('show');
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    hideContactInfo();
+                }
+            });
+        }
+        
+        function hideContactInfo() {
+            const modal = document.getElementById('contactModal');
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+        
+        // Keyboard support for modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                hideContactInfo();
+            }
+        });
+    </script>
+</body>
+</html> 
