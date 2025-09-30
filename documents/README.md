@@ -54,4 +54,13 @@ INSTRUCTIONS FOR USING THIS TEMPLATE:
 2. Replace [USERNAME] with the person's username (lowercase, no spaces):
    Example: [USERNAME] → rahul
    So the href becomes: documents/rahul_certificate.pdf
+   3. Make sure the corresponding PDF file exists in the documents/ folder:
+   Example: documents/rahul_certificate.pdf
+
+4. Test the download link before sharing the QR code
+
+5. Generate a QR code linking to: https://yourdomain.com/download_[username].html
+
+That's it! The design is now ultra-minimal with just one centered button.
+--> 
 
