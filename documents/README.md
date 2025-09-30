@@ -45,3 +45,13 @@ abhishek_certificate.pdf
 ```
 
 Make sure this file exists, or update the HTML file to point to your actual certificate file. 
+<!-- 
+INSTRUCTIONS FOR USING THIS TEMPLATE:
+
+1. Copy this file and rename it to: download_[username].html
+   Example: download_rahul.html
+
+2. Replace [USERNAME] with the person's username (lowercase, no spaces):
+   Example: [USERNAME] → rahul
+   So the href becomes: documents/rahul_certificate.pdf
+
