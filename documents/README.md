@@ -22,6 +22,13 @@ Use the following naming pattern for consistency:
 3. **Upload to this folder** via FTP, file manager, or Git
 4. **Create corresponding HTML page** by copying `download_abhishek.html`
 5. **Update the file path** in the new HTML page
+## 📤 Adding New Certificates
+
+1. **Prepare your PDF file** - ensure it's properly formatted and not corrupted
+2. **Name the file** using the convention above
+3. **Upload to this folder** via FTP, file manager, or Git
+4. **Create corresponding HTML page** by copying `download_abhishek.html`
+5. **Update the file path** in the new HTML page
 
 ## 🔍 File Requirements
 
