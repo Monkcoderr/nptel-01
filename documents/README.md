@@ -62,5 +62,11 @@ INSTRUCTIONS FOR USING THIS TEMPLATE:
 5. Generate a QR code linking to: https://yourdomain.com/download_[username].html
 
 That's it! The design is now ultra-minimal with just one centered button.
+--> 4. Test the download link before sharing the QR code
+
+5. Generate a QR code linking to: https://yourdomain.com/download_[username].html
+
+That's it! The design is now ultra-minimal with just one centered button.
 --> 
+
 
