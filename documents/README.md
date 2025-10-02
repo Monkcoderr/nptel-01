@@ -67,6 +67,13 @@ That's it! The design is now ultra-minimal with just one centered button.
 5. Generate a QR code linking to: https://yourdomain.com/download_[username].html
 
 That's it! The design is now ultra-minimal with just one centered button.
---> 
+--> INSTRUCTIONS FOR USING THIS TEMPLATE:
+
+1. Copy this file and rename it to: download_[username].html
+   Example: download_rahul.html
+
+2. Replace [USERNAME] with the person's username (lowercase, no spaces):
+   Example: [USERNAME] → rahul
+   So the href becom
 
 
