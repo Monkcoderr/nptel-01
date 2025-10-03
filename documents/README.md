@@ -10,6 +10,12 @@ Use the following naming pattern for consistency:
 ```
 
 **Examples:**
+
+- `abhishek_certificate.pdf`
+- `rahul_certificate.pdf`
+- `priya_certificate.pdf`
+- `john_certificate.pdf`
+
 - `abhishek_certificate.pdf`
 - `rahul_certificate.pdf`
 - `priya_certificate.pdf`
